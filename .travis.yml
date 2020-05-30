@@ -73,7 +73,7 @@ before_install:
   - export quiet='--quiet'
   - cpanm ${quiet} --notest --installdeps Alien::gdal
   - cpanm -v git://github.com/shawnlaffan/perl-alien-gdal.git
-  
+  - cpanm --notest --installdeps Geo::GDAL::FFI
 
 script:
   - cpanm --reinstall --verbose Geo::GDAL::FFI
