@@ -30,10 +30,10 @@ install:
   #- cpanm --quiet --notest --installdeps .
   - cpanm --quiet --notest Alien::Build::Plugin::Fetch::Cache
   - cpanm --quiet --notest FFI::Platypus
-  #- cpanm --quiet --notest PDL
+  - cpanm --quiet --notest PDL
 
 
 build_script:
-  #- cpanm --reinstall --verbose Geo::GDAL::FFI
+  - cpanm --reinstall --verbose Geo::GDAL::FFI
   - echo 1
 
