@@ -1,0 +1,38 @@
+branches:
+  except:
+    - /travis/
+skip_tags: true
+
+cache:
+  - C:\strawberry
+  - .alienbuild\plugin_fetch_cache
+
+install:
+  - if not exist "C:\strawberry" choco install strawberryperl --version 5.26.1.1
+  - set ST=C:\strawberry
+  - set PATH=%ST%\perl\bin;%ST%\perl\site\bin;%ST%\c\bin;%PATH%
+  - cd C:\projects\%APPVEYOR_PROJECT_NAME%
+  
+  #  ensure we have some packages that aren't picked up by the install system
+  - cpanm --quiet --notest Alien::Build
+  - cpanm --quiet --notest Sort::Versions
+  - cpanm --quiet --notest PkgConfig
+  - cpanm Alien::Build::Plugin::Cleanse::BuildDir
+  - cpanm --quiet --notest Sort::Versions
+
+  - cpanm -v --notest Alien::geos::af
+  - cpanm -v --notest Alien::sqlite
+  - cpanm -v --notest Alien::proj~1.10
+  - cpanm -v --notest Alien::libtiff
+  - cpanm -v --notest Alien::sqlite
+  - cpanm -v --notest https://github.com/shawnlaffan/perl-alien-gdal.git
+  
+  #- cpanm --quiet --notest --installdeps .
+  - cpanm --quiet --notest Alien::Build::Plugin::Fetch::Cache
+  - cpanm --quiet --notest FFI::Platypus
+  - cpanm --quiet --notest PDL
+
+
+build_script:
+  - cpanm --reinstall --verbose Geo::GDAL::FFI
+
