@@ -69,6 +69,8 @@ before_install:
   - MAKEFLAGS=-j4 cpanm -v git://github.com/shawnlaffan/perl-alien-proj.git
 
   - cpanm --quiet --notest FFI::Platypus
+  
+  - cpanm --quiet --notest PDL
 
   - export quiet='--quiet'
   - cpanm ${quiet} --notest --installdeps Alien::gdal
