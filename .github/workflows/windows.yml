@@ -104,7 +104,7 @@ jobs:
       - name: Install dependencies for Alien::gdal
         run: |
           cpanm --notest --installdeps Alien::gdal
-          cpanm https://github.com/shawnlaffan/perl-alien-gdal.git
+          cpanm git://github.com/shawnlaffan/perl-alien-gdal.git
       
       - name: Install Geo::GDAL::FFI deps
         run: |
