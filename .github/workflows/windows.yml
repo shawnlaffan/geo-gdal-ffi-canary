@@ -95,16 +95,16 @@ jobs:
       - name: Install dependencies Alien::proj
         run: |
           #perl -E"eval qq{require Alien::proj} || system (qw {cpanm -v --notest https://github.com/shawnlaffan/perl-alien-proj.git})"
-          cpanm -v --notest Alien::proj~1.10
+          cpanm -v --notest Alien::proj
 
       - name: Install dependencies Alien::geos::af
         run: |
-          cpanm -v Alien::geos::af
+          cpanm -v https://github.com/shawnlaffan/perl-alien-geos.git
 
       - name: Install dependencies for Alien::gdal
         run: |
           cpanm --notest --installdeps Alien::gdal
-          cpanm git://github.com/shawnlaffan/perl-alien-gdal.git
+          cpanm https://github.com/shawnlaffan/perl-alien-gdal.git
       
       - name: Install Geo::GDAL::FFI deps
         run: |
