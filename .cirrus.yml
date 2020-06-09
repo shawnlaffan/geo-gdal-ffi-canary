@@ -29,10 +29,10 @@ task:
 
     - cpanm --installdeps --notest -v Alien::proj
     - MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-proj.git
-    - find `perl -MAlien::proj -E'say Alien::proj->dist_dir'` '*' -print
+    - find `perl -MAlien::proj -E'say Alien::proj->dist_dir'` -print
 
     - MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-geos.git
-    - find `perl -MAlien::geos::af -E'say Alien::geos::af->dist_dir'` '*' -print
+    - find `perl -MAlien::geos::af -E'say Alien::geos::af->dist_dir'` -print
 
     - cpanm --installdeps --notest Alien::gdal
     - MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-gdal.git
