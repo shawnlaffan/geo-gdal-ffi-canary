@@ -58,9 +58,6 @@ jobs:
           key: ${{ runner.os }}-build-${{ hashFiles('aliencache.txt') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ hashFiles('aliencache.txt') }}
-
-      #- name: Install Dependencies
-      #  run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure
   
       - name: Install dependencies 1
         run: |
@@ -86,8 +83,9 @@ jobs:
 
       - name: Install dependencies Alien::sqlite
         run: |
-          cpanm -v Alien::sqlite~1.05
-
+          cpanm --notest --installdeps Alien::sqlite
+          cpanm https://github.com/shawnlaffan/perl-alien-sqlite.git
+      
       - name: Install dependencies Alien::libtiff
         run: |
           cpanm -v --notest Alien::libtiff
@@ -95,11 +93,13 @@ jobs:
       - name: Install dependencies Alien::proj
         run: |
           #perl -E"eval qq{require Alien::proj} || system (qw {cpanm -v --notest https://github.com/shawnlaffan/perl-alien-proj.git})"
-          cpanm -v --notest Alien::proj
+          cpanm --notest --installdeps Alien::proj
+          cpanm https://github.com/shawnlaffan/perl-alien-proj.git
 
       - name: Install dependencies Alien::geos::af
         run: |
-          cpanm -v https://github.com/shawnlaffan/perl-alien-geos.git
+          cpanm --notest --installdeps Alien::geos::af
+          cpanm https://github.com/shawnlaffan/perl-alien-geos.git
 
       - name: Install dependencies for Alien::gdal
         run: |
