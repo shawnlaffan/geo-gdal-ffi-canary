@@ -19,6 +19,8 @@ install:
   - cpanm --quiet --notest PkgConfig
   - cpanm Alien::Build::Plugin::Cleanse::BuildDir
   - cpanm --quiet --notest Sort::Versions
+  
+  - cpanm --installdeps .
 
   - cpanm -v --notest Alien::sqlite
   - cpanm -v --notest Alien::geos::af
