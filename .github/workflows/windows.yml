@@ -72,6 +72,7 @@ jobs:
           cpanm --quiet --notest Alien::Build::Plugin::Fetch::Cache
           cpanm --quiet --notest Env::ShellWords
           cpanm --quiet --notest FFI::Platypus
+          cpanm --quiet --notest .
 
       - name: Install dependencies PDL
         run: |
@@ -94,7 +95,7 @@ jobs:
         run: |
           #perl -E"eval qq{require Alien::proj} || system (qw {cpanm -v --notest https://github.com/shawnlaffan/perl-alien-proj.git})"
           cpanm --notest --installdeps Alien::proj
-          cpanm https://github.com/shawnlaffan/perl-alien-proj.git
+          cpanm -v https://github.com/shawnlaffan/perl-alien-proj.git
 
       - name: Install dependencies Alien::geos::af
         run: |
