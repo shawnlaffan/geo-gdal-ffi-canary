@@ -13,15 +13,8 @@ install:
   - set PATH=%ST%\perl\bin;%ST%\perl\site\bin;%ST%\c\bin;%PATH%
   - cd C:\projects\%APPVEYOR_PROJECT_NAME%
   
-  #  ensure we have some packages that aren't picked up by the install system
-  - cpanm --quiet --notest Alien::Build
-  - cpanm --quiet --notest Sort::Versions
-  - cpanm --quiet --notest PkgConfig
-  - cpanm Alien::Build::Plugin::Cleanse::BuildDir
-  - cpanm Alien::Build::Plugin::PkgConfig::PPWrapper
-  - cpanm --quiet --notest Sort::Versions
-  
-  - cpanm --installdeps .
+  #  get deps from cpanfile  
+  - cpanm --installdeps --notest .
 
   - cpanm -v --notest Alien::sqlite
   - cpanm -v --notest Alien::geos::af
@@ -34,8 +27,6 @@ install:
   
   #- cpanm --quiet --notest --installdeps .
   - cpanm --quiet --notest Alien::Build::Plugin::Fetch::Cache
-  - cpanm --quiet --notest FFI::Platypus
-  - cpanm --quiet --notest PDL
 
 
 build_script:

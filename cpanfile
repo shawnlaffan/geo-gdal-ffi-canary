@@ -10,3 +10,4 @@ requires 'Alien::Build::Plugin::Cleanse::BuildDir', '0';
 requires 'Alien::Build::Plugin::PkgConfig::PPWrapper', '0';  
 requires 'File::Find::Rule', '0';
 requires 'Alien::Build::Plugin::Fetch::Cache', '0';
+requires 'Env::ShellWords', '0';
