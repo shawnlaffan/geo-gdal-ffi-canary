@@ -51,16 +51,18 @@ before_install:
   - eval "$(perl -Mlocal::lib=${HOME}/perl_modules)"
   #- cpanm --local-lib=~/perl_modules local::lib && eval $(perl -I ~/perl_modules/lib/perl5/ -Mlocal::lib)
   
-  - cpanm --quiet --notest Alien::Build
-  #  Alien::Build::MM sometimes goes missing
-  - cpanm --quiet --notest Alien::Build::MM
-
-  - cpanm --quiet --notest Sort::Versions
-  - cpanm --quiet --notest PkgConfig
-  - cpanm --quiet --notest Alien::Build::Plugin::Cleanse::BuildDir
-  - cpanm --quiet --notest Alien::Build::Plugin::PkgConfig::PPWrapper      
-  - cpanm --quiet --notest File::Find::Rule
-  - cpanm --quiet --notest Alien::Build::Plugin::Fetch::Cache
+  - cpanm --notest --installdeps .
+  
+  #- cpanm --quiet --notest Alien::Build
+  ##  Alien::Build::MM sometimes goes missing
+  #- cpanm --quiet --notest Alien::Build::MM
+  #
+  #- cpanm --quiet --notest Sort::Versions
+  #- cpanm --quiet --notest PkgConfig
+  #- cpanm --quiet --notest Alien::Build::Plugin::Cleanse::BuildDir
+  #- cpanm --quiet --notest Alien::Build::Plugin::PkgConfig::PPWrapper      
+  #- cpanm --quiet --notest File::Find::Rule
+  #- cpanm --quiet --notest Alien::Build::Plugin::Fetch::Cache
 
   - MAKEFLAGS=-j4 cpanm -v --notest Alien::sqlite
   - ALIEN_INSTALL_TYPE=share cpanm -v Alien::libtiff
