@@ -3,6 +3,7 @@ recommends 'List::MoreUtils', '1.0';
 requires 'Alien::Build', '2.25';
 requires 'PDL', '0';
 requires 'FFI::Platypus', '0';
+requires 'FFI::Platypus::Declare', '0';
 requires 'Alien::Build::MM', '0';
 requires 'Sort::Versions', '0';
 requires 'PkgConfig', '0';
