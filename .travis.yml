@@ -59,7 +59,7 @@ before_install:
 
   - cpanm -v --notest --installdeps Alien::geos::af
 
-  - MAKEFLAGS=-j4 cpanm -v --notest https://github.com/shawnlaffan/perl-alien-geos.git
+  - MAKEFLAGS=-j4 cpanm -v --notest https://github.com/shawnlaffan/perl-alien-geos.git@cmake
   - find `perl -MAlien::geos::af -E'say Alien::geos::af->dist_dir'` -print
 
   #- MAKEFLAGS=-j4 cpanm -v --notest Alien::proj~1.07
