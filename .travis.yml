@@ -66,7 +66,7 @@ before_install:
   - perl -MAlien::geos::af -E'say system "objdump -x $_" for Alien::geos::af->dynamic_libs' | grep NEEDED | sort -u
   - echo XXXX
   - echo GEOS CONFIG 
-  - if [ "$TRAVIS_OS_NAME" != "osx" ]; cat `perl -MAlien::geos::af -E'print Alien::geos::af->bin_dir . "/geos-config"'`
+  - if [ "$TRAVIS_OS_NAME" != "osx" ]; then cat `perl -MAlien::geos::af -E'print Alien::geos::af->bin_dir . "/geos-config"'`; fi;
   - echo XXXX
 
   #- MAKEFLAGS=-j4 cpanm -v --notest Alien::proj~1.07
