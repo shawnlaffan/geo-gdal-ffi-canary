@@ -36,7 +36,7 @@ task:
     - perl -MAlien::geos::af -E'say join "\n", Alien::geos::af->dynamic_libs'
     - perl -MAlien::geos::af -E'say system "objdump -x $_" for Alien::geos::af->dynamic_libs' | grep NEEDED | sort -u
     - echo XXXX
-    - echo GEOS CONFIG
+    - echo GEOS CONFIG 
     - cat `perl -MAlien::geos::af -E'print Alien::geos::af->bin_dir . "/geos-config"'`
     - echo XXXX
 
