@@ -53,7 +53,7 @@ task:
 
     - cpanm --notest --installdeps Geo::GDAL::FFI
 
-    - echo 'GDAL libs'
+    - echo 'GDAL libs' 
     - perl -MAlien::gdal -E'say join "\n", Alien::gdal->dynamic_libs'
     - perl -MAlien::gdal -E'say system "objdump -x $_" for Alien::gdal->dynamic_libs' | grep NEEDED | sort -u
 
