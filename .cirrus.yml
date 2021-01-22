@@ -61,7 +61,7 @@ task:
     - perl -MAlien::gdal -E'say system "objdump -x $_" for Alien::gdal->dynamic_libs' | grep NEEDED | sort -u
 
     - echo GDAL LDD
-    - export LD_LIBRARY_PATH=`perl -MAlien::geos::af -E'print Alien::geos::af->dist_dir . q{/lib}';
+    - export LD_LIBRARY_PATH=`perl -MAlien::geos::af -E'print Alien::geos::af->dist_dir . q{/lib}'`
     - ldd `perl -MAlien::gdal -E'print q{}, Alien::gdal->dist_dir, q{/lib/libgdal.so}'`
     - perl -MAlien::gdal -E'say Alien::gdal->run_utility ("gdalwarp")'
     
