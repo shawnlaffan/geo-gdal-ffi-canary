@@ -68,7 +68,7 @@ task:
 
   script:
     - eval $(perl -I ${PERL_MOD_DIR}/lib/perl5/ -Mlocal::lib)
-    - export LD_LIBRARY_PATH=`perl -MAlien::geos::af -E'print Alien::geos::af->dist_dir . q{/lib}'`
+    #- export LD_LIBRARY_PATH=`perl -MAlien::geos::af -E'print Alien::geos::af->dist_dir . q{/lib}'`
     #- export LDFLAGS=`perl -MAlien::geos::af -E'print q{-L}, Alien::geos::af->dist_dir, q{/lib}'`
     - cpanm --verbose --reinstall Geo::GDAL::FFI
     
