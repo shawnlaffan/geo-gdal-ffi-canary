@@ -59,6 +59,8 @@ task:
     - perl -MAlien::gdal -E'say join "\n", Alien::gdal->dynamic_libs'
     - perl -MAlien::gdal -E'say system "objdump -x $_" for Alien::gdal->dynamic_libs' | grep NEEDED | sort -u
 
+    - perl -MAlien::gdal -E'say Alien::gdal->run_utility ("gdalwarp")'
+
 
   script:
     - eval $(perl -I ${PERL_MOD_DIR}/lib/perl5/ -Mlocal::lib)
