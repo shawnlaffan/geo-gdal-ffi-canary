@@ -50,6 +50,7 @@ task:
     - find `perl -MAlien::proj -E'say Alien::proj->dist_dir'` -print
 
     - cpanm --installdeps --notest Alien::gdal
+    #- export LDFLAGS=`perl -MAlien::geos::af -E'print q{-L}, Alien::geos::af->dist_dir, q{/lib}'`
     - MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-gdal.git
 
     - cpanm --notest --installdeps Geo::GDAL::FFI
@@ -61,5 +62,6 @@ task:
 
   script:
     - eval $(perl -I ${PERL_MOD_DIR}/lib/perl5/ -Mlocal::lib)
+    - export LDFLAGS=`perl -MAlien::geos::af -E'print q{-L}, Alien::geos::af->dist_dir, q{/lib}'`
     - cpanm --verbose --reinstall Geo::GDAL::FFI
     
