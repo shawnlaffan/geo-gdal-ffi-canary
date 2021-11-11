@@ -1,5 +1,5 @@
 freebsd_instance:
-  image: freebsd-12-1-release-amd64
+  image: freebsd-13-0
 
 task:
   
@@ -15,7 +15,7 @@ task:
       - echo $CIRRUS_OS 20210115
       
   install_script:
-    - sudo pkg install -y llvm  #  need recent version for PDL
+    #- sudo pkg install -y llvm  #  need recent version for PDL
     - cc -v
     - sudo pkg install -y autoconf automake libtool pkgconf sqlite3 gmake git cmake
     - sudo pkg install -y p5-App-cpanminus
