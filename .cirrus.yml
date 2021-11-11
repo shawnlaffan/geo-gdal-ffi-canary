@@ -16,6 +16,7 @@ task:
       
   install_script:
     - sudo pkg install -y autoconf automake libtool pkgconf sqlite3 gmake git cmake
+    - sudo pkg install -y llvm10  #  need recent version for PDL
     - sudo pkg install -y p5-App-cpanminus
     
     - sudo cpanm local::lib
