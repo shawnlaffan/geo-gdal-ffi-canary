@@ -17,7 +17,9 @@ install:
   - cpanm --installdeps --notest .
 
   - cpanm -v --notest Alien::sqlite
-  - cpanm -v --notest Alien::geos::af
+  - cpanm -installdeps --notest Alien::geos::af
+  - cpanm -v git://github.com/shawnlaffan/perl-alien-geos.git@revised_geos_config
+  - cpanm -v --notest Alien::sqlite
   - cpanm -v --notest Alien::sqlite
   - cpanm -v --notest Alien::libtiff
   - cpanm --notest --installdeps Alien::proj
