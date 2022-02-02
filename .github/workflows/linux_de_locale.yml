@@ -74,6 +74,8 @@ jobs:
           cpanm -v Alien::proj
           cpanm --installdeps --notest Alien::gdal
           cpanm -v Alien::gdal
+          echo GDAL LDD
+          ldd `perl -MAlien::gdal -E'print q{}, Alien::gdal->dist_dir, q{/lib/libgdal.so}'`
           
       - name: Install Geo::GDAL::FFI deps
         run: |
@@ -85,4 +87,6 @@ jobs:
         run: |
           echo $(perl -Mlocal::lib=${HOME}/perl5)
           eval "$(perl -Mlocal::lib=${HOME}/perl5)"
+          echo GDAL LDD again
+          ldd `perl -MAlien::gdal -E'print q{}, Alien::gdal->dist_dir, q{/lib/libgdal.so}'`
           cpanm --reinstall --verbose Geo::GDAL::FFI
