@@ -77,8 +77,12 @@ jobs:
           
       - name: Install Geo::GDAL::FFI deps
         run: |
+          echo $(perl -Mlocal::lib=${HOME}/perl5)
+          eval "$(perl -Mlocal::lib=${HOME}/perl5)"
           cpanm --installdeps Geo::GDAL::FFI
   
       - name: Build
         run: |
+          echo $(perl -Mlocal::lib=${HOME}/perl5)
+          eval "$(perl -Mlocal::lib=${HOME}/perl5)"
           cpanm --reinstall --verbose Geo::GDAL::FFI

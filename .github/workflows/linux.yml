@@ -57,7 +57,7 @@ jobs:
           cpanm --notest local::lib
           echo $(perl -Mlocal::lib=${HOME}/perl5)
           eval "$(perl -Mlocal::lib=${HOME}/perl5)"
-          cpanm --notest Alien::Build  
+          cpanm --notest Alien::Build
           cpanm --installdeps --notest Alien::sqlite
           cpanm -v Alien::sqlite
           cpanm --installdeps --notest Alien::libtiff
@@ -67,13 +67,17 @@ jobs:
           cpanm --installdeps --notest Alien::proj
           cpanm -v Alien::proj
           cpanm --installdeps --notest Alien::gdal
-          MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-gdal.git
+          cpanm -v https://github.com/shawnlaffan/perl-alien-gdal.git
           #cpanm -v Alien::gdal
           
       - name: Install Geo::GDAL::FFI deps
         run: |
+          echo $(perl -Mlocal::lib=${HOME}/perl5)
+          eval "$(perl -Mlocal::lib=${HOME}/perl5)"
           cpanm --installdeps Geo::GDAL::FFI
   
       - name: Build
         run: |
+          echo $(perl -Mlocal::lib=${HOME}/perl5)
+          eval "$(perl -Mlocal::lib=${HOME}/perl5)"
           cpanm --reinstall --verbose Geo::GDAL::FFI
