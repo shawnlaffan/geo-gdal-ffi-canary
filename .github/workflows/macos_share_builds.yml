@@ -74,4 +74,7 @@ jobs:
   
       - name: Build
         run: |
+          #  bandaid
+          export DYLD_LIBRARY_PATH=`perl -MAlien::geos::af -e'print Alien::geos::af->dist_dir . "/lib"'`
+          echo Set DYLD_LIBRARY_PATH to ${DYLD_LIBRARY_PATH}
           cpanm --reinstall --verbose Geo::GDAL::FFI
