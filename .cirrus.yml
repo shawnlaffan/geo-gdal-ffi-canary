@@ -34,7 +34,7 @@ task:
     
     - cpanm --installdeps --notest Alien::geos::af
     #- export ALIEN_GEOS_ENABLE_TESTS=1
-    - MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-geos.git@revised_geos_config
+    - MAKEFLAGS=-j4 cpanm -v git://github.com/shawnlaffan/perl-alien-geos.git@revised_geos_config
     #- MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-geos.git
     - find `perl -MAlien::geos::af -E'say Alien::geos::af->dist_dir'` -print
     #- echo GEOS_libs
@@ -51,12 +51,12 @@ task:
     - MAKEFLAGS=-j4 cpanm -v Alien::libtiff
 
     - cpanm --installdeps --notest -v Alien::proj
-    - MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-proj.git
+    - MAKEFLAGS=-j4 cpanm -v git://github.com/shawnlaffan/perl-alien-proj.git
     - find `perl -MAlien::proj -E'say Alien::proj->dist_dir'` -print
 
     - cpanm --installdeps --notest Alien::gdal
     #- export LDFLAGS=`perl -MAlien::geos::af -E'print q{-L}, Alien::geos::af->dist_dir, q{/lib}'`
-    - MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-gdal.git
+    - MAKEFLAGS=-j4 cpanm -v git://github.com/shawnlaffan/perl-alien-gdal.git
 
     - cpanm --notest --installdeps Geo::GDAL::FFI
 

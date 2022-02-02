@@ -84,18 +84,18 @@ jobs:
         run: |
           #perl -E"eval qq{require Alien::proj} || system (qw {cpanm -v --notest https://github.com/shawnlaffan/perl-alien-proj.git})"
           cpanm --notest --installdeps Alien::proj
-          cpanm -v https://github.com/shawnlaffan/perl-alien-proj.git
+          cpanm -v git://github.com/shawnlaffan/perl-alien-proj.git
 
       - name: Install dependencies Alien::geos::af
         run: |
           cpanm --notest --installdeps Alien::geos::af          
-          cpanm -v https://github.com/shawnlaffan/perl-alien-geos.git@revised_geos_config
+          cpanm -v git://github.com/shawnlaffan/perl-alien-geos.git@revised_geos_config
 
       - name: Install dependencies for Alien::gdal
         run: |
           cpanm --notest --installdeps Alien::gdal
           perl -MAlien::geos::af -E"say $Alien::geos::af->version"
-          cpanm -v https://github.com/shawnlaffan/perl-alien-gdal.git
+          cpanm -v git://github.com/shawnlaffan/perl-alien-gdal.git
       
       - name: Install Geo::GDAL::FFI deps
         run: |
