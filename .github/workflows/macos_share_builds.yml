@@ -34,8 +34,9 @@ jobs:
           which perl
           which cpanm
 
-      - name: Install GDAL and its deps
-        run: brew install gdal
+      #  disable system gdal
+      #- name: Install GDAL and its deps
+      #  run: brew install gdal
         
       - name: perl -V
         run: perl -V
