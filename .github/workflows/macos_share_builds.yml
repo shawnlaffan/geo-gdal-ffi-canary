@@ -77,4 +77,7 @@ jobs:
           #  bandaid
           export DYLD_LIBRARY_PATH=`perl -MAlien::geos::af -e'print Alien::geos::af->dist_dir . "/lib"'`
           echo Set DYLD_LIBRARY_PATH to ${DYLD_LIBRARY_PATH}
+          #  what does libgdal want?
+          export $lib=`perl -MAlien::gdal -E'my @arr = grep {"libgdal"} Alien::gdal->dynamic_libs; print $arr[0]'`
+          otool -L $lib | grep -v System
           cpanm --reinstall --verbose Geo::GDAL::FFI
