@@ -35,7 +35,7 @@ task:
     
     - cpanm --installdeps --notest Alien::geos::af
     #- export ALIEN_GEOS_ENABLE_TESTS=1
-    - MAKEFLAGS=-j4 cpanm -v git://github.com/shawnlaffan/perl-alien-geos.git@revised_geos_config
+    - MAKEFLAGS=-j4 cpanm -v git://github.com/shawnlaffan/perl-alien-geos.git
     #- MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-geos.git
     #- find `perl -MAlien::geos::af -E'say Alien::geos::af->dist_dir'` -print
     #- echo GEOS_libs
