@@ -55,7 +55,7 @@ task:
     - MAKEFLAGS=-j4 cpanm -v Alien::libtiff
 
     - cpanm --installdeps --notest -v Alien::proj
-    - MAKEFLAGS=-j4 cpanm -v git://github.com/shawnlaffan/perl-alien-proj.git
+    - MAKEFLAGS=-j4 cpanm -v git://github.com/shawnlaffan/perl-alien-proj.git@dynamic_lib_diagnostics
     - find `perl -MAlien::proj -E'say Alien::proj->dist_dir'` -print
 
     - export LD_LIBRARY_PATH=`perl -MAlien::geos::af -E'print Alien::geos::af->dist_dir . q{/lib}'`
