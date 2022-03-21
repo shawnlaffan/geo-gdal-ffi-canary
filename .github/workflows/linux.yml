@@ -39,7 +39,7 @@ jobs:
       - name: Prepare for cache
         run: |
           perl -V > perlversion.txt
-          echo '20210911' >> perlversion.txt
+          echo '20220321' >> perlversion.txt
           ls -l perlversion.txt
 
       - name: Cache CPAN modules
@@ -58,6 +58,7 @@ jobs:
           echo $(perl -Mlocal::lib=${HOME}/perl5)
           eval "$(perl -Mlocal::lib=${HOME}/perl5)"
           cpanm --notest Alien::Build
+          cpanm --notest PDL
           cpanm --installdeps --notest Alien::sqlite
           cpanm -v Alien::sqlite
           cpanm --installdeps --notest Alien::libtiff
