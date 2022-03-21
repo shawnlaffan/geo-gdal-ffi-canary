@@ -93,7 +93,7 @@ jobs:
       - name: Install dependencies for Alien::gdal
         run: |
           cpanm --notest --installdeps Alien::gdal
-          perl -MAlien::geos::af -E"say $Alien::geos::af->version"
+          perl -MAlien::geos::af -E"say Alien::geos::af->version"
           cpanm -v https://github.com/shawnlaffan/perl-alien-gdal.git
       
       - name: Install Geo::GDAL::FFI deps
