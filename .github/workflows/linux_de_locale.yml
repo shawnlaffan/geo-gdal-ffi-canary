@@ -73,7 +73,7 @@ jobs:
           cpanm --installdeps --notest Alien::proj
           cpanm -v Alien::proj
           cpanm --installdeps --notest Alien::gdal
-          cpanm -v Alien::gdal
+          cpanm -v https://github.com/shawnlaffan/perl-alien-gdal.git
           echo GDAL LDD
           ldd `perl -MAlien::gdal -E'print q{}, Alien::gdal->dist_dir, q{/lib/libgdal.so}'`
           
