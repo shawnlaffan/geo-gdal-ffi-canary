@@ -12,7 +12,7 @@ task:
     folder: /perl5
     reupload_on_changes: false # set to false if there is a fingerprint script
     fingerprint_script:
-      - echo $CIRRUS_OS 20220311
+      - echo $CIRRUS_OS 20220321
       
   install_script:
     #- sudo pkg install -y llvm  #  need recent version for PDL
@@ -28,7 +28,7 @@ task:
     - echo Run it anyway...
     - eval $(perl -I ${PERL_MOD_DIR}/lib/perl5/ -Mlocal::lib)
 
-    - MAKEFLAGS=-j4 cpanm PDL
+    - cpanm PDL
 
     # get deps from cpanfile
     - cpanm --notest --installdeps .
