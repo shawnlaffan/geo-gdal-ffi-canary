@@ -13,23 +13,20 @@ install:
   - set PATH=%ST%\perl\bin;%ST%\perl\site\bin;%ST%\c\bin;%PATH%
   - cd C:\projects\%APPVEYOR_PROJECT_NAME%
   
-  #  get deps from cpanfile  
-  - cpanm --installdeps --notest .
-
+  - cpanm --installdeps --notest Alien::sqlite
   - cpanm -v --notest Alien::sqlite
   - cpanm --installdeps --notest Alien::geos::af
-  - cpanm -v https://github.com/shawnlaffan/perl-alien-geos.git
+  - cpanm -v Alien::geos::af
   - cpanm --installdeps --notest Alien::sqlite
   - cpanm -v Alien::sqlite
-  - cpanm --installdeps --notest ALien::libtiff
+  - cpanm --installdeps --notest Alien::libtiff
   - cpanm -v Alien::libtiff
   - cpanm --notest --installdeps Alien::proj
   - cpanm -v Alien::proj
-  #- cpanm --notest --installdeps git://github.com/shawnlaffan/perl-alien-proj.git
-  #- cpanm -v git://github.com/shawnlaffan/perl-alien-proj.git
-  #- cpanm -v --notest git://github.com/shawnlaffan/perl-alien-gdal.git
   - cpanm --installdeps --notest ALien::gdal
   - cpanm -v Alien::gdal
+  #  get rest of deps from cpanfile  
+  - cpanm --installdeps --notest .
   
   #- cpanm --quiet --notest --installdeps .
   - cpanm --quiet --notest Alien::Build::Plugin::Fetch::Cache
