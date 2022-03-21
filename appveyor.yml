@@ -23,7 +23,7 @@ install:
   - cpanm -v Alien::libtiff
   - cpanm --notest --installdeps Alien::proj
   - cpanm -v Alien::proj
-  - cpanm --installdeps --notest ALien::gdal
+  - cpanm --installdeps --notest Alien::gdal
   - cpanm -v Alien::gdal
   #  get rest of deps from cpanfile  
   - cpanm --installdeps --notest .
