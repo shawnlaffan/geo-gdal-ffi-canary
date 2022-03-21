@@ -18,16 +18,18 @@ install:
 
   - cpanm -v --notest Alien::sqlite
   - cpanm --installdeps --notest Alien::geos::af
-  - cpanm -v git://github.com/shawnlaffan/perl-alien-geos.git@revised_geos_config
-  - cpanm -v --notest Alien::sqlite
-  - cpanm -v --notest Alien::sqlite
-  - cpanm -v --notest Alien::libtiff
+  - cpanm -v https://github.com/shawnlaffan/perl-alien-geos.git
+  - cpanm --installdeps --notest Alien::sqlite
+  - cpanm -v Alien::sqlite
+  - cpanm --installdeps --notest ALien::libtiff
+  - cpanm -v Alien::libtiff
   - cpanm --notest --installdeps Alien::proj
-  - cpanm -v --notest Alien::proj
+  - cpanm -v Alien::proj
   #- cpanm --notest --installdeps git://github.com/shawnlaffan/perl-alien-proj.git
   #- cpanm -v git://github.com/shawnlaffan/perl-alien-proj.git
   #- cpanm -v --notest git://github.com/shawnlaffan/perl-alien-gdal.git
-  - cpanm -v --notest Alien::gdal
+  - cpanm --installdeps --notest ALien::gdal
+  - cpanm -v Alien::gdal
   
   #- cpanm --quiet --notest --installdeps .
   - cpanm --quiet --notest Alien::Build::Plugin::Fetch::Cache
