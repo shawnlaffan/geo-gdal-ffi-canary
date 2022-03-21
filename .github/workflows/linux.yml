@@ -63,9 +63,9 @@ jobs:
           cpanm --installdeps --notest Alien::libtiff
           cpanm -v Alien::libtiff
           cpanm --installdeps --notest Alien::geos::af
-          cpanm -v git://github.com/shawnlaffan/perl-alien-geos.git
+          cpanm -v https://github.com/shawnlaffan/perl-alien-geos.git
           cpanm --installdeps --notest Alien::proj
-          cpanm -v git://github.com/shawnlaffan/perl-alien-proj.git
+          cpanm -v https://github.com/shawnlaffan/perl-alien-proj.git
           cpanm --installdeps --notest Alien::gdal
           cpanm -v https://github.com/shawnlaffan/perl-alien-gdal.git
           #cpanm -v Alien::gdal
