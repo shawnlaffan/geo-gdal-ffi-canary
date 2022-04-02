@@ -61,8 +61,7 @@ jobs:
   
       - name: Install dependencies 1
         run: |
-          #cpanm --notest local::lib
-          #eval "$(perl -Mlocal::lib=${PWD}/perl_modules)"
+          # cpanm --notest PDL
           #  get deps from cpanfile
           cpanm --notest --installdeps .
 
@@ -81,7 +80,6 @@ jobs:
 
       - name: Install dependencies Alien::proj
         run: |
-          #perl -E"eval qq{require Alien::proj} || system (qw {cpanm -v --notest https://github.com/shawnlaffan/perl-alien-proj.git})"
           cpanm --notest --installdeps Alien::proj
           cpanm -v https://github.com/shawnlaffan/perl-alien-proj.git
 
