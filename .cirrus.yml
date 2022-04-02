@@ -54,13 +54,13 @@ task:
     - cpanm --installdeps --notest Alien::libtiff
     - MAKEFLAGS=-j4 cpanm -v Alien::libtiff
 
-    - export LD_LIBRARY_PATH=`perl -MAlien::libtiff -E'print Alien::libtiff->dist_dir . q{/lib}'`:${LD_LIBRARY_PATH}
+    #- export LD_LIBRARY_PATH=`perl -MAlien::libtiff -E'print Alien::libtiff->dist_dir . q{/lib}'`:${LD_LIBRARY_PATH}
     - echo LD_LIBRARY_PATH is ${LD_LIBRARY_PATH}
     - cpanm --installdeps --notest -v Alien::proj
     - MAKEFLAGS=-j4 cpanm -v https://github.com/shawnlaffan/perl-alien-proj.git
     - find `perl -MAlien::proj -E'say Alien::proj->dist_dir'` -print
 
-    - export LD_LIBRARY_PATH=`perl -MAlien::geos::af -E'print Alien::geos::af->dist_dir . q{/lib}'`:${LD_LIBRARY_PATH}
+    #- export LD_LIBRARY_PATH=`perl -MAlien::geos::af -E'print Alien::geos::af->dist_dir . q{/lib}'`:${LD_LIBRARY_PATH}
     - echo LD_LIBRARY_PATH is ${LD_LIBRARY_PATH}
     - cpanm --installdeps --notest Alien::gdal
     #- export LDFLAGS=`perl -MAlien::geos::af -E'print q{-L}, Alien::geos::af->dist_dir, q{/lib}'`
