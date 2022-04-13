@@ -28,7 +28,7 @@ task:
     - echo Run it anyway... 
     - eval $(perl -I ${PERL_MOD_DIR}/lib/perl5/ -Mlocal::lib)
 
-    - cpanm PDL
+    - cpanm -v PDL
 
     # get deps from cpanfile
     - cpanm --notest --installdeps .
