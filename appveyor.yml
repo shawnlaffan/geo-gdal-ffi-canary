@@ -23,18 +23,18 @@ install:
   - cpanm -v Alien::libtiff
   - cpanm --notest --installdeps Alien::proj
   - cpanm -v Alien::proj
-  #- cpanm --verbose Alien::automake
+  ##- cpanm --verbose Alien::automake
   - cpanm --installdeps --notest Alien::gdal
-  - cpanm -v Alien::gdal
+  #- cpanm -v Alien::gdal
   #  get rest of deps from cpanfile  
-  - cpanm --installdeps --notest .
+  -# cpanm --installdeps --notest .
   
-  #- cpanm --quiet --notest --installdeps .
-  - cpanm --quiet --notest Alien::Build::Plugin::Fetch::Cache
+  ##- cpanm --quiet --notest --installdeps .
+  #- cpanm --quiet --notest Alien::Build::Plugin::Fetch::Cache
 
 
 build_script:
   - prove
-  - cpanm --reinstall --verbose Geo::GDAL::FFI
+  #- cpanm --reinstall --verbose Geo::GDAL::FFI
   - echo 1
 
