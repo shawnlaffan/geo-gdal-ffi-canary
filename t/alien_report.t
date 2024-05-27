@@ -60,7 +60,8 @@ diag $ENV{HOMEBREW_PREFIX};
 diag `which -a pkg-config` if $^O ne 'MSWin32';
 
 if ($^O =~ /darwin/i and defined $ENV{HOMEBREW_PREFIX}) {
-    ($path, $err) = capture {system qw /pkg-config --datadir gdal/};
+    use Capture::Tiny qw/capture/;
+    my ($path, $err) = capture {system qw /pkg-config --datadir gdal/};
     warn $err if $err;
     diag "Found path $path";
 }
