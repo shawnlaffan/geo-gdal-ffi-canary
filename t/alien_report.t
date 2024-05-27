@@ -55,7 +55,9 @@ diag "Radix char is "
 my $data_dir = Alien::gdal->data_dir;
 diag "Alien::gdal data_dir: $data_dir";
 my @dynamic_libs = Aien::gdal->dynamic_libs;
-diag "Alien::gdal dynamic_libs: $dynamic_libs";
+diag "Alien::gdal dynamic_libs: " . join ' ', @dynamic_libs;
+diag $ENV{HOMEBREW_PREFIX};
+diag `which -a pkg-config` if $^O ne 'MSWin32';
 
 ok (1);
 done_testing();
