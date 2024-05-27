@@ -3,13 +3,8 @@ use warnings;
 
 use Test2::V0;
 
-#my @files;
-use FindBin qw { $Bin };
-use Path::Tiny qw /path/;
 use File::Find;
 use List::Util qw /max/;
-
-use rlib;
 
 diag '';
 diag 'Aliens:';
