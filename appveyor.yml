@@ -8,7 +8,7 @@ cache:
   - .alienbuild\plugin_fetch_cache
 
 install:
-  - if not exist "C:\strawberry" choco install strawberryperl --version 5.26.1.1
+  - if not exist "C:\strawberry" choco install strawberryperl --version 5.38.2.2
   - set ST=C:\strawberry
   - set PATH=%ST%\perl\bin;%ST%\perl\site\bin;%ST%\c\bin;%PATH%
   - cd C:\projects\%APPVEYOR_PROJECT_NAME%
