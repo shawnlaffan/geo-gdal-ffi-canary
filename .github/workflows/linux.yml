@@ -88,4 +88,5 @@ jobs:
           #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:`perl -MAlien::proj -e'print Alien::proj->dist_dir . "/lib"'`
           echo GDAL LDD again
           ldd `perl -MAlien::gdal -E'print q{}, Alien::gdal->dist_dir, q{/lib/libgdal.so}'`
+          prove
           cpanm --reinstall --verbose Geo::GDAL::FFI

@@ -100,6 +100,7 @@ jobs:
   
       - name: Build
         run: |
+          prove
           cpanm --reinstall --verbose Geo::GDAL::FFI
 
       #- name: Zip _alien

@@ -43,7 +43,7 @@ jobs:
       - name: Prepare for cache
         run: |
           perl -V > perlversion.txt
-          echo '20220402' >> perlversion.txt
+          echo '20240527' >> perlversion.txt
           ls -l perlversion.txt
 
       - name: Cache CPAN modules
@@ -74,4 +74,5 @@ jobs:
   
       - name: Build
         run: |
+          prove
           cpanm --reinstall --verbose Geo::GDAL::FFI

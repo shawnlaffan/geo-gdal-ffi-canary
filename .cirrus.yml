@@ -84,5 +84,6 @@ task:
     #- export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:`perl -MAlien::proj -E'print Alien::proj->dist_dir . q{/lib}'`
     #- export LDFLAGS=`perl -MAlien::geos::af -E'print q{-L}, Alien::geos::af->dist_dir, q{/lib}'`
     - echo LD_LIBRARY_PATH is now ${LD_LIBRARY_PATH}
+    - prove
     - cpanm --verbose --reinstall Geo::GDAL::FFI
     
