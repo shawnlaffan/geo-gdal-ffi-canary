@@ -3,8 +3,8 @@ branches:
     - /travis/
 skip_tags: true
 
-#cache:
-  #- C:\strawberry
+cache:
+  - C:\strawberry
   #- .alienbuild\plugin_fetch_cache
 
 install:
