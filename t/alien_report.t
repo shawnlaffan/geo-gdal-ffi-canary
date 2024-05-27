@@ -51,5 +51,9 @@ diag "Radix char is "
     . (LOCALE_USES_COMMA_RADIX ? '' : 'not ')
     . 'a comma.';
 
+
+my $data_dir = Alien::gdal->data_dir;
+diag "Alien::gdal data_dir: $data_dir";
+
 ok (1);
 done_testing();
