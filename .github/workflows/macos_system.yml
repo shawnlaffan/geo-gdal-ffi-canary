@@ -67,12 +67,16 @@ jobs:
           cpanm --notest Alien::libtiff
           cpanm --notest Alien::proj
           cpanm --notest Alien::gdal          
+          #  diagnostics
+          #prove
+          find $HOMEBREW_PREFIX -name gdal.pc -print
       
       - name: Install Geo::GDAL::FFI deps
         run: |
-          cpanm --installdeps Geo::GDAL::FFI
+          # cpanm --installdeps Geo::GDAL::FFI
+          echo 1
   
       - name: Build
         run: |
-          prove
-          cpanm --reinstall --verbose Geo::GDAL::FFI
+          #cpanm --reinstall --verbose Geo::GDAL::FFI
+          echo 1
