@@ -67,7 +67,7 @@ jobs:
           cpanm --notest Alien::libtiff
           cpanm --notest Alien::proj
           cpanm --notest Alien::gdal          
-          cpanm Test2
+          cpanm Test2::Suite
           #  diagnostics
           prove
           cat $(find $HOMEBREW_PREFIX -name gdal.pc -print)
