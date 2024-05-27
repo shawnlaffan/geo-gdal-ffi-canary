@@ -68,8 +68,8 @@ jobs:
           cpanm --notest Alien::proj
           cpanm --notest Alien::gdal          
           #  diagnostics
-          #prove
-          find $HOMEBREW_PREFIX -name gdal.pc -print
+          prove
+          cat $(find $HOMEBREW_PREFIX -name gdal.pc -print)
       
       - name: Install Geo::GDAL::FFI deps
         run: |
@@ -78,5 +78,5 @@ jobs:
   
       - name: Build
         run: |
-          #cpanm --reinstall --verbose Geo::GDAL::FFI
+          cpanm --reinstall --verbose Geo::GDAL::FFI
           echo 1
