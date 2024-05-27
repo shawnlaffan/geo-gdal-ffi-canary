@@ -59,5 +59,12 @@ diag "Alien::gdal dynamic_libs: " . join ' ', @dynamic_libs;
 diag $ENV{HOMEBREW_PREFIX};
 diag `which -a pkg-config` if $^O ne 'MSWin32';
 
+if ($^O =~ /darwin/i and defined $ENV{HOMEBREW_PREFIX}) {
+    ($path, $err) = capture {system qw /pkg-config --datadir gdal/};
+    warn $err if $err;
+    diag "Found path $path";
+}
+
+
 ok (1);
 done_testing();

@@ -79,5 +79,5 @@ jobs:
   
       - name: Build
         run: |
-          cpanm --reinstall --verbose Geo::GDAL::FFI
+          #cpanm --reinstall --verbose Geo::GDAL::FFI
           echo 1
