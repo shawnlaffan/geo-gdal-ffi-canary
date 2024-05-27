@@ -32,6 +32,7 @@ task:
 
     # get deps from cpanfile
     - cpanm --notest --installdeps .
+    - cpanm Alien::gmake
     
     - cpanm --installdeps --notest Alien::geos::af
     #- export ALIEN_GEOS_ENABLE_TESTS=1
