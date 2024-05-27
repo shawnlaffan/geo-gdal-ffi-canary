@@ -54,6 +54,8 @@ diag "Radix char is "
 
 my $data_dir = Alien::gdal->data_dir;
 diag "Alien::gdal data_dir: $data_dir";
+my @dynamic_libs = Aien::gdal->dynamic_libs;
+diag "Alien::gdal dynamic_libs: $dynamic_libs";
 
 ok (1);
 done_testing();
