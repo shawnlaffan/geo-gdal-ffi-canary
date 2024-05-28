@@ -74,10 +74,11 @@ jobs:
       
       - name: Install Geo::GDAL::FFI deps
         run: |
-          # cpanm --installdeps Geo::GDAL::FFI
+          cpanm --installdeps Geo::GDAL::FFI
           echo 1
   
       - name: Build
         run: |
-          #cpanm --reinstall --verbose Geo::GDAL::FFI
+          export PKG_CONFIG_PATH=$HOMEBREW_PREFIX/lib/pkgconfig
+          cpanm --reinstall --verbose Geo::GDAL::FFI
           echo 1
