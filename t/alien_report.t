@@ -5,6 +5,7 @@ use Test2::V0;
 
 use File::Find;
 use List::Util qw /max/;
+use Path::Tiny qw /path/;
 
 diag '';
 diag 'Aliens:';
@@ -60,10 +61,37 @@ diag $ENV{HOMEBREW_PREFIX};
 diag `which -a pkg-config` if $^O ne 'MSWin32';
 
 if ($^O =~ /darwin/i and defined $ENV{HOMEBREW_PREFIX}) {
-    use Capture::Tiny qw/capture/;
-    my ($path, $err) = capture {system qw /pkg-config --datadir gdal/};
-    warn $err if $err;
-    diag "Found path $path";
+    use PkgConfig;
+    my $self = Alien::gdal->new;
+    my $path = '';
+    my %options;
+    if (-d $self->dist_dir . '/lib/pkgconfig') {
+        $options{search_path_override} = [ $self->dist_dir . '/lib/pkgconfig' ];
+    }
+    if ($self->install_type('system') and $^O =~ /darwin/i and defined $ENV{HOMEBREW_PREFIX}) {
+        my @dylibs = $self->dynamic_libs;
+        if (path ($ENV{HOMEBREW_PREFIX})->subsumes($dylibs[0])) {
+            $options{search_path} = [ "$ENV{HOMEBREW_PREFIX}/lib/pkgconfig" ];
+        }
+    }
+    else {
+        my $o = PkgConfig->find('gdal', %options);
+        if ($o->errmsg) {
+            warn $o->errmsg;
+        }
+        else {
+            $path = $o->get_var('datadir');
+            if ($path =~ m|/data$|) {
+                my $alt_path = $path;
+                $alt_path =~ s|/data$||;
+                if (!-d $path && -d $alt_path) {
+                    #  GDAL 2.3.x and earlier erroneously appended /data
+                    $path = $alt_path;
+                }
+            }
+        }
+    }
+    diag "Found gdal data path: $path";
 }
 
 
