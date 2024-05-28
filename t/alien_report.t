@@ -68,29 +68,32 @@ if ($^O =~ /darwin/i and defined $ENV{HOMEBREW_PREFIX}) {
     if (-d $self->dist_dir . '/lib/pkgconfig') {
         $options{search_path_override} = [ $self->dist_dir . '/lib/pkgconfig' ];
     }
-    if ($self->install_type('system') and $^O =~ /darwin/i and defined $ENV{HOMEBREW_PREFIX}) {
+    if ($self->install_type('system') and defined $ENV{HOMEBREW_PREFIX}) {
+
         my @dylibs = $self->dynamic_libs;
+        diag "CHECKCHECK ", join ' ', @dylibs;
+        diag $ENV{HOMEBREW_PREFIX};
         if (path ($ENV{HOMEBREW_PREFIX})->subsumes($dylibs[0])) {
             $options{search_path} = [ "$ENV{HOMEBREW_PREFIX}/lib/pkgconfig" ];
         }
     }
+    
+    my $o = PkgConfig->find('gdal', %options);
+    if ($o->errmsg) {
+        warn $o->errmsg;
+    }
     else {
-        my $o = PkgConfig->find('gdal', %options);
-        if ($o->errmsg) {
-            warn $o->errmsg;
-        }
-        else {
-            $path = $o->get_var('datadir');
-            if ($path =~ m|/data$|) {
-                my $alt_path = $path;
-                $alt_path =~ s|/data$||;
-                if (!-d $path && -d $alt_path) {
-                    #  GDAL 2.3.x and earlier erroneously appended /data
-                    $path = $alt_path;
-                }
+        $path = $o->get_var('datadir');
+        if ($path =~ m|/data$|) {
+            my $alt_path = $path;
+            $alt_path =~ s|/data$||;
+            if (!-d $path && -d $alt_path) {
+                #  GDAL 2.3.x and earlier erroneously appended /data
+                $path = $alt_path;
             }
         }
     }
+
     diag "Found gdal data path: $path";
 }
 
