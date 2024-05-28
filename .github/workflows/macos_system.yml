@@ -70,7 +70,7 @@ jobs:
           cpanm Test2::Suite
           #  diagnostics
           prove
-          cat $(find $HOMEBREW_PREFIX -name gdal.pc -print)
+          #cat $(find $HOMEBREW_PREFIX -name gdal.pc -print)
       
       - name: Install Geo::GDAL::FFI deps
         run: |
